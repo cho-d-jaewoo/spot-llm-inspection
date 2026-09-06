@@ -1,0 +1,14 @@
+# Normalise line endings in the repository; check out natively.
+* text=auto eol=lf
+
+# Windows batch files must keep CRLF or cmd.exe mis-parses multi-line blocks.
+*.bat text eol=crlf
+
+# Shell scripts must keep LF even when checked out on Windows.
+*.sh text eol=lf
+
+# Binary assets — never diff or convert.
+*.png binary
+*.pdf binary
+*.pt  binary
+*.xlsx binary

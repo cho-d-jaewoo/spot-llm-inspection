@@ -1,0 +1,24 @@
+# ── Simulation (only needed to run src/spot_factory_v2.py and sim/) ──────────
+# Isaac Sim is a large, platform-specific install. Follow NVIDIA's instructions
+# first; `carb`, `omni` and `pxr` are provided by it, not by pip.
+#   https://docs.isaacsim.omniverse.nvidia.com/latest/installation/
+isaacsim[all,extscache]==5.0.0
+torch==2.7.0
+torchvision==0.22.0
+torchaudio==2.7.0
+
+# ── LLM decision layer (src/llm_decision.py) ─────────────────────────────────
+# `llama` runs through a local Ollama server and needs no key; see README.
+anthropic>=0.40
+openai>=1.50
+
+# ── Analysis and figures (analysis/, tests/smoke_test_v2.py) ─────────────────
+# This group alone is enough to reproduce every table and figure from an
+# existing metrics CSV — no Isaac Sim, no GPU, no API keys.
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+openpyxl>=3.1
+
+# ── Optional ─────────────────────────────────────────────────────────────────
+opencv-python>=4.8   # video recording of the viewport (--record)

@@ -1,0 +1,69 @@
+# --- Secrets -----------------------------------------------------------------
+.env
+*.key
+config/credentials.yaml
+
+# --- Experiment output -------------------------------------------------------
+# Metrics CSVs, figures, Excel exports and run logs are regenerated from
+# src/spot_factory_v2.py + analysis/. Not tracked.
+results/
+*.xlsx
+
+# --- Simulation recordings ---------------------------------------------------
+# `--record` writes one PNG per frame; a 10-lap run is several GB.
+recordings/
+frames/
+*.mp4
+*.avi
+
+# --- Model weights -----------------------------------------------------------
+# policies/spot_policy.pt is the exception: it is small and required to walk,
+# so it is committed deliberately.
+*.pt
+*.pth
+*.ckpt
+*.bin
+!policies/spot_policy.pt
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+sdist/
+wheels/
+*.egg-info/
+*.egg
+MANIFEST
+
+# --- Environments ------------------------------------------------------------
+.venv
+venv/
+env/
+ENV/
+
+# --- Testing / linting -------------------------------------------------------
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# --- Notebooks ---------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- Agent / editor scratch --------------------------------------------------
+.claude/
+memory/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
