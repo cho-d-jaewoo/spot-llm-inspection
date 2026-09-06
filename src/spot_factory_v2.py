@@ -49,18 +49,14 @@ ENV_USD = ("https://omniverse-content-production.s3-us-west-2.amazonaws.com"
 SPOT_USD = ("https://omniverse-content-production.s3-us-west-2.amazonaws.com"
             "/Assets/Isaac/5.0/Isaac/Robots/BostonDynamics/spot/spot.usd")
 
-# ── Repo-relative asset paths ────────────────────────────────────────────────
-# Resolved from this file's location so a fresh clone works anywhere. Set
-# SPOT_REPO_ROOT to point elsewhere if you keep large assets outside the repo.
-from pathlib import Path as _Path
-_REPO_ROOT = _Path(os.environ.get("SPOT_REPO_ROOT") or _Path(__file__).resolve().parents[1])
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ICON_DIR = str(_REPO_ROOT / "assets" / "icons")
+ICON_DIR = os.path.join(_ROOT, "assets", "icons")
 ICON_FILES = {"FIRE_RISK": "icon_fire.png", "LIQUID_LEAK": "icon_leak.png",
               "AGV_STOPPED": "icon_agv.png", "SMOKE_DETECTED": "icon_smoke.png"}
 
-POLICY_PATH = str(_REPO_ROOT / "policies" / "spot_policy.pt")
-ENV_YAML    = str(_REPO_ROOT / "policies" / "spot_env.yaml")
+POLICY_PATH = os.path.join(_ROOT, "policies", "spot_policy.pt")
+ENV_YAML    = os.path.join(_ROOT, "policies", "spot_env.yaml")
 
 PHYSICS_DT   = 0.002
 RENDERING_DT = 0.002
