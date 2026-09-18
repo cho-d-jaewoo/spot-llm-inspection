@@ -61,11 +61,7 @@ confidence ranking with a calibrated threshold instead.
 
 ## Setup
 
-Analysis only — regenerates tables and figures from a CSV. No Isaac Sim, no
-GPU, no API keys.
-
 ```bash
-pip install -r requirements-analysis.txt
 python tests/smoke_test_v2.py
 ```
 
@@ -86,9 +82,6 @@ cp .env.example .env
 
 ```bash
 python src/spot_factory_v2.py --models haiku sonnet gpt4o llama --laps 10 --seed 42
-
-python analysis/make_paper_figures.py --input results/metrics_raw.csv
-python analysis/export_excel.py       --input results/metrics_raw.csv
 ```
 
 Other flags: `--headless`, `--follow-cam`, `--speed {1,2,3,4}`, `--record`
@@ -97,13 +90,10 @@ Other flags: `--headless`, `--follow-cam`, `--speed {1,2,3,4}`, `--record`
 ## Layout
 
 ```
-src/        anomaly_config · llm_decision · oracle · metrics_collector · spot_factory_v2
-analysis/   CSV in, tables and figures out. No Isaac Sim
+src/        anomaly_config · llm_decision · oracle · metrics_collector · spot_factory_v2-
 tests/      smoke_test_v2.py
 policies/   pretrained SPOT locomotion policy + env config
 ```
-
-`results/` and recordings are generated output and are not tracked.
 
 ## License
 
